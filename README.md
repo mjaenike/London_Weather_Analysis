@@ -1,34 +1,70 @@
 # <center>Is London Really as Rainy as the Movies Make It Out To Be? An Exploratory Data Analysis</center> 
-This repository attempts to determine whether London's reputation as an ever-gray, rainy city accurately reflects its weather patterns.
+This project investigates London's reputation as a perpetually rainy city and explores whether its weather patterns align with this perception.
 
 ***
 
-## How to run the code
-The code and its testing are most well documented in the [Jupyter Notebook](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/Weather_Data_Processing.ipynb). There is also a [.py file](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/Analysis_Functions.py) for the functions imported into the Jupyter Notebook. The testing of these functions is also included in the .py file. Lastly, there is a [.py file for Data Collection](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/Data_Collection.py).
+## Table of Contents
+- [Project Overview](#project-overview)
+- [How to Run the Code](#how-to-run-the-code)
+- [Data Collection](#data-collection)
+- [Libraries and Dependencies](#libraries-and-dependencies)
+- [References and Sources](#references-and-sources)
 
-To run the code, libraries must be installed in the terminal as follows:
+---
 
+## Project Overview
+
+London has long been portrayed as a city with persistent rain. In this project, I explore the accuracy of this portrayal by analyzing historical weather data. By using the OpenMeteo API, I assess the average rainfall for cities worldwide, focusing on London, and compare it against other major cities to determine whether the "rainy" stereotype holds up.
+
+The project uses a combination of data collection, cleaning, and visualization techniques to offer an insightful exploration of the weather patterns across cities globally.
+
+***
+
+## How to Run the Code
+
+The code is organized across three Python files for easier management and testing:
+
+- [Data Collection](code/Data_Collection.py)
+- [Functions](code/Functions.py)
+- [Data Processing](code/Data_Processing.ipynb) (Jupyter Notebook)
+
+The Jupyter Notebook contains the primary analysis, including visualizations, based on the collected data. The `.py` files contain functions and testing for data processing and collection.
+
+### Installation Instructions
+
+Before running the project, you need to install the required libraries. Open the terminal and install the libraries as follows:
+
+```bash
+pip install pandas lets-plot geopandas
 ```
->>> pip install <library>
-```
 
-These libraries include pandas, lets_plot, and geopandas.
-
-Ensure both CSVs ([world_cities.csv](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/world_cities.csv) and [country-capital-lat-long-population.csv](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/country-capital-lat-long-population.csv)) are downloaded, as well as the .py files ([Analysis_Functions.py](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/Analysis_Functions.py) and [Data_Collection.py](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/Data_Collection.py)).
-
-In the terminal command line, type:
+## Data Collection
+To collect the necessary data, run the **Data_Collection.py** script. The script fetches data from OpenMeteo's API and saves it in a CSV file, which is then used for analysis. In the terminal, type the following command:
 
 ```
 >>> python Data_Collection.py
 ```
 
-**NB:** Because of OpenMeteo's API request rate limiting policies, this file takes a significant amount of time (20.8 minutes) to produce the resulting CSV, [rainiest_cities.csv](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/rainiest_cities.csv). As such, the rainiest_cities.csv file can be downloaded from this repository directly.
+**Note:** The OpenMeteo API has request rate limits, so this script will take approximately **20.8** minutes to complete. You can download the pre-collected data file directly from this repository: [rainiest_cities.csv.](data/rainiest_cities.csv)
 
-Once the rainiest_cities CSV is downloaded, the visualizations included in the [Jupyter Notebook](https://github.com/lse-ds105/ds105a-2024-w06-summative-mjae-1616/blob/main/Weather_Data_Processing.ipynb) can be run using the "Run All" button in the notebook.
+Once the data is collected, run the Jupyter Notebook, [Data_Processing.ipynb](code/Data_Processing.ipynb), using the "Run All" button in the notebook to visualize and analyze the data.
+
+## Libraries and Dependencies
+The project uses the following Python libraries:
+
+- **pandas:** For data manipulation and analysis.
+- **lets-plot:** For creating interactive visualizations.
+- **geopandas:** For geographic data handling and plotting.
+
+These libraries can be installed via `pip` as shown in the **Installation Instructions.**
 
 ## References and Sources
-The Wikipedia page entitled ["List of countries by average annual precipitation"](https://en.wikipedia.org/wiki/List_of_countries_by_average_annual_precipitation) was used in the creation of the raininess index to verify that results reflected one of the metrics used in the calculation of the index (mm of rainfall)
 
-Additionally, much of the knowledge of Python and some packages (namely, datetime, math, and time) was derived from previous coursework.
+- **OpenMeteo API:** Used for fetching weather data to analyze precipitation levels across cities.
+- **Wikipedia:** The ["List of countries by average annual precipitation"](https://en.wikipedia.org/wiki/List_of_countries_by_average_annual_precipitation) was used to verify that the results in the analysis reflect common precipitation metrics.
 
-GitHub Copilot was used to produce the visualizations to debug some of the plotting and generate some formatting for the histogram visualization. Additionally, ChatGPT was used to help narrow down and prepare the data for the line graph.
+***
+
+**Author:** Mia Jaenike<br>
+**Contact:** miaajaenike@gmail.com<br>
+**Last Updated:** 2024-12-11
